@@ -6,6 +6,13 @@ osr2png is a CLI thumbnail generator for osu! maps.
 
 as I am very lazy and only update this thing few times a year, lots of stuff gonna break. if that happens please file an issue.
 
+**IMPORTANT**
+폴더를 하나 만들어서 .exe 파일을 넣으세요.
+그리고 osu! 홈페이지의 설정에서 `OAuth - 새 OAuth 어플리케이션`을 클릭해서 클라이언트를 만드세요.
+그리고 .exe가 있는 폴더에 클라이언트 ID, Secret을 각각 한 줄씩 적힌 `apikey.txt`를 만드세요. 
+`apikey.txt`를 만들지 않으면 프로그램이 강제 종료됩니다.
+
+
 ## Styles
 
 ## Style 1
