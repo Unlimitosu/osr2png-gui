@@ -1,17 +1,8 @@
 # osr2png - rewrite³
 
-[![GitHub release](https://img.shields.io/github/release/xjunko/osr2png.svg?style=for-the-badge&logo=github)](https://github.com/xjunko/osr2png/releases/latest)
+This repository is forked version of [osr2png](https://github.com/xjunko/osr2png), added GUI by me.
 
-osr2png is a CLI thumbnail generator for osu! maps.
-
-as I am very lazy and only update this thing few times a year, lots of stuff gonna break. if that happens please file an issue.
-
-**IMPORTANT**
-폴더를 하나 만들어서 .exe 파일을 넣으세요.
-그리고 osu! 홈페이지의 설정에서 `OAuth - 새 OAuth 어플리케이션`을 클릭해서 클라이언트를 만드세요.
-그리고 .exe가 있는 폴더에 클라이언트 ID, Secret을 각각 한 줄씩 적힌 `apikey.txt`를 만드세요. 
-`apikey.txt`를 만들지 않으면 프로그램이 강제 종료됩니다.
-
+osr2png is a  thumbnail generator for osu! maps.
 
 ## Styles
 
@@ -25,58 +16,31 @@ as I am very lazy and only update this thing few times a year, lots of stuff gon
 
 
 ## Running
-
-Latest binaries for Linux/Windows can be downloaded from [here](https://github.com/xjunko/osr2png/releases/latest).
-
-Simply unpack the file somewhere and run it with your terminal.
-
-##### Linux / Powershell
-
-```bash
-./osr2png <arguments>
+- 먼저, osu! 홈페이지에 로그인하고, [여기](https://osu.ppy.sh/home/account/edit)에 접속합니다.
+- OAuth 탭에 `새 OAuth 애플리케이션`을 눌러 OAuth 클라이언트를 생성합니다. 본인 소유의 클라이언트가 있다면 건너뛰어도 됩니다.
+- OAuth 클라이언트 ID와 Secret을 복사해서, 다음 형식의 `apikey.txt`를 생성합니다.
 ```
-
-## Run arguments
-
-```txt
-usage: main.py [-h] [-v] [-r REPLAY] [-b BEATMAP] [-m MESSAGE] [-s STYLE] [-width WIDTH] [-height HEIGHT] [-dim BACKGROUND_DIM] [-blur BACKGROUND_BLUR] [-border BACKGROUND_BORDER]
-
-An open-source osu! thumbnail generator for lazy circle clickers.
-
-options:
-  -h, --help            show this help message and exit
-  -v, --version         show program's version number and exit
-  -r REPLAY, --replay REPLAY
-                        [Optional] The path of the .osr file
-  -b BEATMAP, --beatmap BEATMAP
-                        [Optional] The path of the .osu file, if using a custom beatmap.
-  -m MESSAGE, --message MESSAGE
-                        [Optional] The extra text at the bottom
-  -s STYLE, --style STYLE
-                        Style of Image, [1: default 2: akatsuki]
-  -width WIDTH, --width WIDTH
-                        [Optional] The width of the image.
-  -height HEIGHT, --height HEIGHT
-                        [Optional] The width of the image.
-  -dim BACKGROUND_DIM, --background-dim BACKGROUND_DIM
-                        [Optional] The dim of beatmap background.
-  -blur BACKGROUND_BLUR, --background-blur BACKGROUND_BLUR
-                        [Optional] The blur of beatmap background.
-  -border BACKGROUND_BORDER, --background-border BACKGROUND_BORDER
-                        [Optional] The border of beatmap background's dim.
+<OAuth ID>
+<OAuth Secret>
 ```
+- [Pre-release](https://github.com/Unlimitosu/osr2png-gui/releases/tag/pre-release)에서 .exe 파일을 다운로드 받습니다.
+- 사용할 폴더 안에 .exe 파일과 `apikey.txt`를 넣고 실행합니다.
+- Replay를 선택하고 Run을 누르면 output 폴더가 생기며, replay 파일명과 동일한 썸네일이 생성됩니다.
+- Save Preset 버튼을 누르면 현재 설정이 preset.txt 파일에 저장되며, 이후 osr2png를 실행하면 동일한 설정이 적용됩니다.
 
-Examples:
+## FAQ
+- Style 2에서 최대 콤보가 0으로 나옵니다.
+  - 버그입니다. 수정할 예정입니다.
 
-```
-./osr2png -r replay.osr
+- pp 값이 실제와 다릅니다.
+  - 버그입니다. 원작자 코드에서도 동일한 듯 합니다.
 
-./osr2png -r replay.osr -b beatmap_file.osu
+- .exe를 실행했는데 터미널 창이 나왔다가 바로 꺼집니다.
+  - `apikey.txt`를 같은 폴더 내에 두었는지 확인해보세요.
 
-./osr2png -r replay.osr -dim 0.5 -border 50 -blur 15
+- height, width 등의 값을 수정하고 Run을 누르니까 강제종료됩니다.
+  - 입력 허용 범위 밖의 값입니다. 되도록이면 기본 값을 사용하세요.
 
-./osr2png -r replay.osr -m "FINALLY FCED"
-```
 
 ## Credits
 
